@@ -2,10 +2,10 @@ splitSLDF <- function(SLDF, SPDF, dmax=NULL) {
  # split 1-Line Lines in a SpatialLinesDataFrame, by intersection with a set of points
  #
 
- if (class(SLDF) == 'SpatialLines')
-   cls <- 'sl'
- else if (class(SLDF) == 'SpatialLinesDataFrame')
+ if (inherits(SLDF, "SpatialLinesDataFrame"))
    cls <- 'sldf'
+ else if (inherits(SLDF, "SpatialLines"))
+   cls <- 'sl'
  else
    stop ('splitSLDF - ERR01 - check input object class')
 
